@@ -1,6 +1,6 @@
-# kafka-aclaration
+# JSON highlighter 🖍️🖍️
 
-> A Vue.js project
+> Vue project to highlight fields of jsons from kafka messages
 
 ## Build Setup
 
