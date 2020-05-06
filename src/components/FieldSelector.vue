@@ -1,7 +1,12 @@
-
-
 <template>
-  <button type="button" class="col-md-auto btn btn-secondary btn-md" :style="{'background-color': backColor}" @click="sendFieldName">{{ fieldName }}</button>
+  <button
+    type="button"
+    class="col-md-auto btn btn-secondary btn-md"
+    :style="{'background-color': backColor}"
+    @click="sendFieldName"
+  >
+    {{ fieldName }}
+  </button>
 </template>
 <script>
 export default {
@@ -9,20 +14,20 @@ export default {
   data() {
     return {
       backColor: ""
-    };
+    }
   },
   methods: {
     sendFieldName() {
       if (this.backColor === "") {
-        this.backColor = "lightgray";
-        this.$emit("selectField", this.fieldName);
+        this.backColor = "lightgray"
+        this.$emit("selectField", this.fieldName)
       } else {
-        this.backColor = "";
-        this.$emit("removeField", this.fieldName);
+        this.backColor = ""
+        this.$emit("removeField", this.fieldName)
       }
     }
   }
-};
+}
 </script>
 <style>
 .panel-body {

@@ -1,10 +1,15 @@
-
-
 <template>
   <div class="row">
-    <div v-for="(msg, index) in msgs" :key="index" class="card">
+    <div
+      v-for="(msg, index) in msgs"
+      :key="index"
+      class="card"
+    >
       <div class="card-body info">
-        <a v-for="(value, key, index) in msg" :key="index">{{ key }}: {{ value }} <br></a>
+        <a
+          v-for="(value, key, index) in msg"
+          :key="index"
+        >{{ key }}: {{ value }} <br></a>
       </div>
     </div>
   </div>
