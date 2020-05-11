@@ -1,22 +1,33 @@
 <template>
-  <div class="row">
-    <div
-      v-for="(msg, index) in msgs"
-      :key="index"
+  <v-row class="justify-center">
+    <v-card
       class="card"
+      outlined
     >
-      <div class="card-body info">
-        <a
-          v-for="(value, key, index) in msg"
-          :key="index"
-        >{{ key }}: {{ value }} <br></a>
-      </div>
-    </div>
-  </div>
+      <v-list-item three-line>
+        <v-list-item-content>
+          <div class="overline mb-4">
+            message
+          </div>
+          <div
+            v-for="(value, key, index) in msg"
+            :key="index"
+          >
+            <v-list-item-title class="headline mb-1">
+              {{ key }}:
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              {{ value }}
+            </v-list-item-subtitle>
+          </div>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
+  </v-row>
 </template>
 <script>
 export default {
-  props: ["msgs"]
+  props: ["msg"]
 }
 </script>
 <style>

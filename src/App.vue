@@ -1,33 +1,48 @@
 <template>
-  <div class="container">
-    <div class="text-center">
-      <app-text-area
-        :selected="selected"
-        @sendJsons="showFields"
-        @sendFields="asignFields"
-        @hideFields="hideFields"
-      />
-    </div>
-    <div class="row">
-      <div v-show="areFieldsDisplayed">
-        <div class="text-center">
-          <h3 v-if="fields.length !== 0">
-            Select what params you want to display
-          </h3>
-        </div>
-        <div class="align-items-center">
-          <app-selector
-            v-for="field in fields"
-            :key="field"
-            :field-name="field"
-            @selectField="selectField"
-            @removeField="removeField"
-          />
-        </div>
+  <v-app dark>
+    <v-container class="justify-center">
+      <div class="text-center">
+        <app-text-area
+          :selected="selected"
+          @sendJsons="showFields"
+          @sendFields="asignFields"
+          @hideFields="hideFields"
+        />
       </div>
-    </div>
-    <app-msgs :msgs="msgs" />
-  </div>
+      <v-row class="fields">
+        <div v-show="areFieldsDisplayed">
+          <div class="text-center">
+            <h3 v-if="fields.length !== 0">
+              Select what params you want to display
+            </h3>
+          </div>
+          <v-container
+            grid-list-md
+            text-xs-center
+          >
+            <v-layout
+              row
+              wrap
+            >
+              <app-selector
+                v-for="field in fields"
+                :key="field"
+                :field-name="field"
+                @selectField="selectField"
+                @removeField="removeField"
+              />
+            </v-layout>
+          </v-container>
+        </div>
+      </v-row>
+      <div
+        v-for="(msg, index) in msgs"
+        :key="index"
+      >
+        <app-msgs :msg="msg" />
+      </div>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
@@ -73,4 +88,14 @@ export default {
 </script>
 
 <style>
+  body {
+    margin: 2em;
+    color: cornflowerblue;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .fields {
+    margin-top: 1em;
+  }
 </style>

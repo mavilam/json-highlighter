@@ -1,30 +1,33 @@
 <template>
-  <div class="row justify-content-md-center text-block">
+  <v-row>
     <form>
-      <div class="form-group">
-        <h2>JSONs kafka messages</h2>
-        <textarea
+      <div>
+        <h1>json-highlighter</h1>
+        <v-textarea
           v-model="text"
+          outlined
+          name="input-7-4"
+          label="JSONs messages"
           class="col align-self-center form-control"
         />
       </div>
-      <div class="justify-content-md-center form-group">
-        <button
-          class="btn btn-primary"
+      <div>
+        <v-btn
+          color="primary"
           @click.prevent="createNew"
         >
           Parse JSONs
-        </button>
-        <button
+        </v-btn>
+        <v-btn
           v-if="areFieldsLoaded"
-          class="btn btn-primary"
+          color="primary"
           @click.prevent="hideFields"
         >
           Show/Hide Fields
-        </button>
+        </v-btn>
       </div>
     </form>
-  </div>
+  </v-row>
 </template>
 
 <script>

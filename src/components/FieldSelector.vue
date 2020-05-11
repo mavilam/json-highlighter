@@ -1,12 +1,15 @@
 <template>
-  <button
-    type="button"
-    class="col-md-auto btn btn-secondary btn-md"
-    :style="{'background-color': backColor}"
-    @click="sendFieldName"
-  >
-    {{ fieldName }}
-  </button>
+  <v-flex xs2>
+    <v-btn
+      text
+      small
+      color="primary"
+      :style="{'background-color': backColor}"
+      @click="sendFieldName"
+    >
+      {{ fieldName }}
+    </v-btn>
+  </v-flex>
 </template>
 <script>
 export default {
@@ -19,7 +22,7 @@ export default {
   methods: {
     sendFieldName() {
       if (this.backColor === "") {
-        this.backColor = "lightgray"
+        this.backColor = "lightblue"
         this.$emit("selectField", this.fieldName)
       } else {
         this.backColor = ""
@@ -31,14 +34,13 @@ export default {
 </script>
 <style>
 .panel-body {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
 .param {
   cursor: pointer;
 }
 .param:hover {
-  background-color: lightgray;
+  background-color: lightblue;
 }
 button {
   margin: 1px;
