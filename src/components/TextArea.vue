@@ -89,4 +89,7 @@ textarea.form-control {
   height: 15em;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
 }
+h1 {
+  color: #0d5fb0;
+}
 </style>

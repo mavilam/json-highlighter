@@ -94,7 +94,9 @@ export default {
     margin-left: 15%;
     margin-right: 15%;
   }
-
+  h3 {
+    color: #3D5F82;
+  }
   .fields {
     margin-top: 1em;
   }
