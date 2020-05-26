@@ -43,10 +43,15 @@ export default {
   },
   watch: {
     text: function() {
-      const messages = this.getArrayOfMsgs(this.text.replace(/\n/g, ""))
-      const fieldNames = Object.keys(JSON.parse(messages[0]))
-      this.$emit("sendFields", fieldNames)
-      this.areFieldsLoaded = true
+      try {
+        if (!this.text) return
+        const messages = this.getArrayOfMsgs(this.text.replace(/\n/g, ""))
+        const fieldNames = Object.keys(JSON.parse(messages[0]))
+        this.$emit("sendFields", fieldNames)
+        this.areFieldsLoaded = true
+      } catch (err) {
+        this.$emit("showSnackBar", true)
+      }
     },
     selected: function() {
       if (this.created) this.createNew()

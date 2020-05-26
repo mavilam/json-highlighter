@@ -1,3 +1,4 @@
+
 <template>
   <v-app dark>
     <v-container class="justify-center">
@@ -6,6 +7,7 @@
           :selected="selected"
           @sendJsons="showFields"
           @sendFields="asignFields"
+          @showSnackBar="snackbar = true"
           @hideFields="hideFields"
         />
       </div>
@@ -41,6 +43,18 @@
       >
         <app-msgs :msg="msg" />
       </div>
+      <v-snackbar
+        v-model="snackbar"
+        :timeout="4000"
+        :color="snackColor"
+      >
+        {{ snackBarText }}
+        <v-btn
+          @click.native="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </v-snackbar>
     </v-container>
   </v-app>
 </template>
@@ -61,7 +75,10 @@ export default {
       msgs: [],
       fields: [],
       selected: [],
-      areFieldsDisplayed: true
+      areFieldsDisplayed: true,
+      snackBarText: "There was an error with the messages, are they correctly format?",
+      snackbar: false,
+      snackColor: "#1976d2"
     }
   },
   methods: {
