@@ -86,7 +86,7 @@ export default {
       this.msgs = objToShow
     },
     asignFields(jsonFields) {
-      this.fields = jsonFields
+      this.fields = jsonFields.sort()
     },
     selectField(fieldName) {
       this.selected.push(fieldName)
